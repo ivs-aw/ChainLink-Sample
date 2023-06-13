@@ -352,3 +352,4 @@ deployed to 0x781BBC6B014c9f5055ad23f3CD5Fc5aa27039e2e
 6. [Register a Custom Logic Upkeep](https://docs.chain.link/chainlink-automation/register-upkeep/#register-an-upkeep-using-the-chainlink-automation-app)
 7. [【REMIX】サンプル用のAutomain用のスマコン](https://remix.ethereum.org/#url=https://docs.chain.link/samples/Automation/tutorials/EthBalanceMonitor.sol&lang=en&optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.18+commit.87f61d96.js)
 8. [How To Create Dynamic NFTs Using Chainlink Automation | Chainlink Engineering Tutorials](https://www.youtube.com/watch?v=E7Rm1LUKhj4)
+9. [実際にデプロイしたAutomainスクリプトコントラクト](https://automation.chain.link/mumbai/18268368912146003678957606947898212473059057081127208716115380477784269230939)
