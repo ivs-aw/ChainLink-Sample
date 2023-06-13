@@ -284,10 +284,22 @@ Gas used by sendRequest: 439384
 Gas used by client callback function: 75029
 ```
 
-スクリプトを呼び出す方法
+スクリプトを呼び出す方法  
+※ 事前にChainlink Automain Appで登録している必要あり！！
 
 ```bash
 npx hardhat functions-read  --contract 0x4747b535f1C4a48bbfc88CA68DC8973DD38Eb413 --network polygonMumbai --configpath Functions-request-config.js
+```
+
+実行結果
+
+```bash
+lygonMumbai --configpath Functions-request-config.js
+secp256k1 unavailable, reverting to browser version
+Reading data from Functions client contract 0x4747b535f1C4a48bbfc88CA68DC8973DD38Eb413 on network polygonMumbai
+
+On-chain response represented as a hex string: 0x000000000000000000000000000000000000000000000000000000000027af6f
+Decoded as a uint256: 2600815
 ```
 
 ## Dynamic NFTの動かし方
