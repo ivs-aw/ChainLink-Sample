@@ -302,6 +302,13 @@ On-chain response represented as a hex string: 0x0000000000000000000000000000000
 Decoded as a uint256: 2600815
 ```
 
+次の日に実行した例
+
+```bash
+On-chain response represented as a hex string: 0x000000000000000000000000000000000000000000000000000000000027a27c
+Decoded as a uint256: 2597500
+```
+
 ## Dynamic NFTの動かし方
 
 ```bash
