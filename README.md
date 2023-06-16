@@ -350,6 +350,38 @@ deployed to 0x781BBC6B014c9f5055ad23f3CD5Fc5aa27039e2e
 
 ![](./assets/6.png)
 
+## OpenAIのAPIを試験的に試すスクリプトの実行方法
+
+```bash
+cd openai-sample && npm run execute
+```
+
+実行結果
+
+```bash
+{
+  id: 'chatcmpl-7S4atAUjkdjarv4viFtKMeMYAmpa0',
+  object: 'chat.completion',
+  created: 1686925199,
+  model: 'gpt-3.5-turbo-0301',
+  usage: { prompt_tokens: 55, completion_tokens: 111, total_tokens: 166 },
+  choices: [ { message: [Object], finish_reason: 'stop', index: 0 } ]
+}
+出力結果: pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract MyNFT is ERC721URIStorage, Ownable {
+    constructor() ERC721("MyNFT", "NFT") {}
+
+    function mint(address to, uint256 tokenId, string memory _uri) public onlyOwner {
+        _safeMint(to, tokenId);
+        _setTokenURI(tokenId, _uri);
+    }
+} END
+```
+
 ## 参考文献
 1. [スターターキット](https://github.com/smartcontractkit/functions-hardhat-starter-kit)
 2. [Chainlink Functionsメモ](https://zenn.dev/pokena/scraps/a3aaff73a7c21d)

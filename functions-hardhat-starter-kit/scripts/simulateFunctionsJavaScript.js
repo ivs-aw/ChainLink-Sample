@@ -11,7 +11,9 @@ const runSimulation = async (requestConfig) => {
 }
 
 ;(async () => {
-  const unvalidatedRequestConfig = require("../Functions-request-config.js")
+  // ここをシミュレーションしたいファイルに変更する。
+  //const unvalidatedRequestConfig = require("../Functions-request-config.js")
+  const unvalidatedRequestConfig = require("../OpenAI-API-Request-config.js")
   const requestConfig = getRequestConfig(unvalidatedRequestConfig)
 
   if (requestConfig.secretsLocation === 1) {
