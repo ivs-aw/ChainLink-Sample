@@ -20,7 +20,7 @@ const messages = [
       ERC-721のNFTを発行するコード
       
       #出力
-      `,
+    `,
   },
 ];
 
@@ -47,26 +47,43 @@ const openAiRequest = Functions.makeHttpRequest({
     'Content-Type': 'application/json',
     Authorization: `Bearer ${ secrets.apiKey }`,
   },
+  method: "POST",
   data: {
-    body
-  }
+    'messages': [
+      {
+        role: 'user',
+        content: `
+          入力に書かれたsolidityのコードを生成してください。
+    
+          #入力
+          ERC-721のNFTを発行するコード
+          
+          #出力
+        `,
+      },
+    ],
+    model: 'gpt-3.5-turbo',
+  },
+  timeout: 9000
 })
 
 
 // First, execute all the API requests are executed concurrently, then wait for the responses
-const [res] = await Promise.all([
-  openAiRequest
-])
+const res = await openAiRequest;
 
+var result;
 
 if (!res.error) {
-  console.log("API Call Success!! result:", res.content);
+  console.log("API Call Success!! result:", JSON.stringify(res));
+  //console.log("data:", res);
+
+  data = JSON.stringify(res)
+
+  result = data.data.choices[0].message;
 } else {
   console.log("OpenAI API call Error");
   console.error("error", res)
 }
-
-console.log(`Generated OutPut: $${res}`)
 
 // The source code MUST return a Buffer or the request will return an error message
 // Use one of the following functions to convert to a Buffer representing the response bytes that are returned to the client smart contract:
@@ -74,4 +91,4 @@ console.log(`Generated OutPut: $${res}`)
 // - Functions.encodeInt256
 // - Functions.encodeString
 // Or return a custom Buffer for a custom byte encoding
-return Functions.encodeString(res.content)
+return Functions.encodeString(result)
