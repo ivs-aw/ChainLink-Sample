@@ -54,7 +54,7 @@ const openAiRequest = Functions.makeHttpRequest({
         role: 'user',
         content: `
           入力に書かれたsolidityのコードを生成してください。
-    
+
           #入力
           ERC-721のNFTを発行するコード
           
@@ -74,12 +74,13 @@ const res = await openAiRequest;
 var result;
 
 if (!res.error) {
-  console.log("API Call Success!! result:", JSON.stringify(res));
+  console.log("API Call Success!!");
   //console.log("data:", res);
 
-  data = JSON.stringify(res)
-
-  result = data.data.choices[0].message;
+  data = JSON.parse(JSON.stringify(res))
+  // console.log("data:", data)
+  // console.log("choices data:", JSON.stringify(data.data.choices[0]))
+  result = data.data.choices[0].message.content;
 } else {
   console.log("OpenAI API call Error");
   console.error("error", res)
