@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const {
   PRIVATE_KEY, 
-  SNOWTRACE_API_KEY,
+  POLYGONSCAN_API_KEY,
   POLYGON_MUMBAI_RPC_URL
 } = process.env;
 
@@ -11,7 +11,7 @@ const {
 module.exports = {
   solidity: "0.8.18",
   etherscan: {
-    apiKey: SNOWTRACE_API_KEY
+    apiKey: POLYGONSCAN_API_KEY
   },
   networks: {
     mumbai: {

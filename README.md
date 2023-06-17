@@ -4,6 +4,10 @@ ChainLink 調査用のリポジトリです。
 
 ※ 現在、 Chainlink Functions の機能は、AllowList で実行できるアカウントが制限されているので申請する必要があります。
 
+### ※注意事項※
+
+現在、 Chainlink Functions の機能は、ベータ版で実行時間は、9000ms 以下、データも 256KB 以内にする必要があります。
+
 手動であれば、Automation の設定はできる模様。
 
 ## Automate your Functions のチュートリアル
@@ -438,6 +442,88 @@ Decoded as a string: function mintNFT(address to, uint256 tokenId) public {
 
     _safeMint(to, tokenId);
 }
+```
+
+- 新たにデプロイし直した FunctionConsumer contract
+
+```bash
+npx hardhat functions-deploy-client --network polygonMumbai --verify true
+```
+
+実行結果
+
+```bash
+Verifying contract...
+Nothing to compile
+Successfully submitted source code for contract
+contracts/FunctionsConsumer.sol:FunctionsConsumer at 0x8F6631e30a2cF2Bd017595f3215F550f0613170C
+for verification on the block explorer. Waiting for verification result...
+
+Contract already verified
+
+FunctionsConsumer contract deployed to 0x8F6631e30a2cF2Bd017595f3215F550f0613170C on polygonMumbai
+```
+
+- 関数の設定
+
+```bash
+npx hardhat functions-sub-create --network polygonMumbai --amount 5 --contract 0x8F6631e30a2cF2Bd017595f3215F550f0613170C
+```
+
+```bash
+Created subscription with ID: 1828
+Owner: 0x51908F598A5e0d8F1A3bAbFa6DF76F9704daD072
+Balance: 5.0 LINK
+1 authorized consumer contract:
+[ '0x8F6631e30a2cF2Bd017595f3215F550f0613170C' ]
+```
+
+- 新たにデプロイした関数から呼び出す方法
+
+```bash
+npx hardhat functions-request --subid 1828 --contract 0x8F6631e30a2cF2Bd017595f3215F550f0613170C --network polygonMumbai --configpath ./OpenAI-API-Request-config.js --gaslimit 60000
+```
+
+実行結果
+
+```bash
+secp256k1 unavailable, reverting to browser version
+Estimating cost if the current gas price remains the same...
+
+The transaction to initiate this request will charge the wallet (0x51908F598A5e0d8F1A3bAbFa6DF76F9704daD072):
+0.000543370505795952 MATIC, which (using mainnet value) is $0.004694440526483112
+
+If the request's callback uses all 60,000 gas, this request will charge the subscription:
+0.200107452952304862 LINK
+
+Continue? Enter (y) Yes / (n) No
+y
+Simulating Functions request locally...
+
+__Console log messages from sandboxed code__
+API Call Success!!
+
+__Output from sandboxed source code__
+Output represented as a hex string: 0x32
+Decoded as a string: 2
+
+Successfully created encrypted secrets Gist: https://gist.github.com/mashharuki/0c173e7d36fb1d3261b6621b5e76bee3
+ℹ Transaction confirmed, see https://mumbai.polygonscan.com/tx/0x2d0b75b67f72945dced69ea57b19185531973d925286da4137af2933d03ca0e6 for more details.
+✔ Request 0x49ef83449dd269174af51d39aaef8429332a6c6ebf2cda677eec59aeca6a86e4 fulfilled! Data has been written on-chain.
+
+Response returned to client contract represented as a hex string: 0x32
+Decoded as a string: 2
+
+Actual amount billed to subscription #1828:
+┌──────────────────────┬─────────────────────────────┐
+│         Type         │           Amount            │
+├──────────────────────┼─────────────────────────────┤
+│  Transmission cost:  │  0.000054831976257248 LINK  │
+│      Base fee:       │          0.2 LINK           │
+│                      │                             │
+│     Total cost:      │  0.200054831976257248 LINK  │
+└──────────────────────┴─────────────────────────────┘
+
 ```
 
 ## 参考文献
