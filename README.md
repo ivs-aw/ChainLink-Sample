@@ -398,7 +398,46 @@ Decoded as a string: テスト成功しました。こんにちは！
 
 Value returned from source code: 0xe38386e382b9e38388e68890e58a9fe38197e381bee38197e3819fe38082e38193e38293e381abe381a1e381afefbc81
 Decoded as a string: テスト成功しました。こんにちは！
+```
 
+- 入力データを変えた場合
+
+```json
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": `
+          入力に書かれたsolidityのコードを生成してください。
+
+          #入力
+          ERC-721のNFTをmintするメソッド
+          
+          #出力
+        `
+    }
+  ],
+  "model": "gpt-3.5-turbo"
+}
+```
+
+- 実行結果
+
+```bash
+__Output from sandboxed source code__
+Output represented as a hex string: 0x66756e6374696f6e206d696e744e4654286164647265737320746f2c2075696e7432353620746f6b656e496429207075626c6963207b0a202020207265717569726528215f65786973747328746f6b656e4964292c2022546f6b656e20616c72656164792065786973747322293b0a0a202020205f736166654d696e7428746f2c20746f6b656e4964293b0a7d
+Decoded as a string: function mintNFT(address to, uint256 tokenId) public {
+    require(!_exists(tokenId), "Token already exists");
+
+    _safeMint(to, tokenId);
+}
+
+Value returned from source code: 0x66756e6374696f6e206d696e744e4654286164647265737320746f2c2075696e7432353620746f6b656e496429207075626c6963207b0a202020207265717569726528215f65786973747328746f6b656e4964292c2022546f6b656e20616c72656164792065786973747322293b0a0a202020205f736166654d696e7428746f2c20746f6b656e4964293b0a7d
+Decoded as a string: function mintNFT(address to, uint256 tokenId) public {
+    require(!_exists(tokenId), "Token already exists");
+
+    _safeMint(to, tokenId);
+}
 ```
 
 ## 参考文献

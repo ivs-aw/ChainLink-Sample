@@ -56,7 +56,7 @@ const openAiRequest = Functions.makeHttpRequest({
           入力に書かれたsolidityのコードを生成してください。
 
           #入力
-          ERC-721のNFTを発行するコード
+          ERC-721のNFTをmintするメソッド
           
           #出力
         `,
