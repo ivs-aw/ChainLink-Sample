@@ -38,6 +38,10 @@ npx hardhat run scripts/deploy.ts
   Receiverコントラクトをデプロイした記録    
   0xad9A067f7Ee8812F94a28FC6b5891593D631E4cc
 
+- 実際にクロスチェーンでメッセージを送信した記録
+
+  [0x8c56914499eee119481262ecac3c26896941022c6d4b6ef9f484cdb6fe962092](https://ccip.chain.link/msg/0x8c56914499eee119481262ecac3c26896941022c6d4b6ef9f484cdb6fe962092)
+
 ### 参考文献
 1. [CCIP Getting started](https://docs.chain.link/ccip/getting-started)
 2. [Hackathon resources](https://docs.chain.link/resources/hackathon-resources)
@@ -46,3 +50,4 @@ npx hardhat run scripts/deploy.ts
 5. [CCIPのサポートブロックチェーンと制約](https://docs.chain.link/ccip/supported-networks)
 6. [CCIP Examples](https://docs.chain.link/ccip/examples)
 7. [CCIP Explorer](https://ccip.chain.link/)
+8. [Cross chain NFT Sample](https://github.com/smartcontractkit/ccip-cross-chain-nft)
