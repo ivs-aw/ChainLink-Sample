@@ -537,3 +537,6 @@ Actual amount billed to subscription #1828:
 7. [【REMIX】サンプル用の Automain 用のスマコン](https://remix.ethereum.org/#url=https://docs.chain.link/samples/Automation/tutorials/EthBalanceMonitor.sol&lang=en&optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.18+commit.87f61d96.js)
 8. [How To Create Dynamic NFTs Using Chainlink Automation | Chainlink Engineering Tutorials](https://www.youtube.com/watch?v=E7Rm1LUKhj4)
 9. [実際にデプロイした Automain スクリプトコントラクト](https://automation.chain.link/mumbai/18268368912146003678957606947898212473059057081127208716115380477784269230939)
+10. [CCIP get start](https://docs.chain.link/ccip/getting-started)
+11. [Example Cross-chain dApps and Tools](https://docs.chain.link/ccip/examples)
+12. [【GitHub】ccip-starter-kit-hardhat](https://github.com/smartcontractkit/ccip-starter-kit-hardhat)
