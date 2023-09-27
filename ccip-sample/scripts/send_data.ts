@@ -6,9 +6,9 @@ import { ethers } from "hardhat";
 async function main() {
   // destinationChainSelector
   const chain_selector = "12532609583862916517";
-  // sender address
+  // sender address (sepolia)
   const sender_address = "0x7C7Bd8BC7cEBeb774FC2E94CA8e7f9c0a752e682";
-  // receiver address
+  // receiver address (mumbai)
   const receiver_address = "0xad9A067f7Ee8812F94a28FC6b5891593D631E4cc";
   // text
   const text_data = "Hello World!";

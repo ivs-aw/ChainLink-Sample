@@ -4,7 +4,7 @@ import { ethers } from "hardhat";
  * send メソッド実行メソッド
  */
 async function main() {
-  // receiver address
+  // receiver address (mumbai)
   const receiver_address = "0xad9A067f7Ee8812F94a28FC6b5891593D631E4cc";
   
   // アカウントを取得
