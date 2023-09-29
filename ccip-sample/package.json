@@ -6,6 +6,7 @@
   "dependencies": {
     "@chainlink/contracts": "^0.7.1",
     "@chainlink/contracts-ccip": "^0.7.6",
+    "@openzeppelin/contracts": "^4.9.3",
     "dotenv": "^16.3.1",
     "hardhat": "^2.17.3"
   },
@@ -32,9 +33,14 @@
     "test": "hardhat test",
     "compile": "hardhat compile",
     "clean": "hardhat clean",
-    "deploy:sepolia": "hardhat run scripts/deploy.ts --network sepolia",
-    "deploy:mumbai": "hardhat run scripts/deploy_receiver.ts --network mumbai",
-    "sendMessage": "hardhat run scripts/send_data.ts --network sepolia",
-    "readMessage": "hardhat run scripts/read_data.ts --network mumbai"
+    "base:deploy:sepolia": "hardhat run scripts/base/deploy_sender.ts --network sepolia",
+    "base:deploy:mumbai": "hardhat run scripts/base/deploy_receiver.ts --network mumbai",
+    "base:sendMessage": "hardhat run scripts/base/send_data.ts --network sepolia",
+    "base:readMessage": "hardhat run scripts/base/read_data.ts --network mumbai",
+    "cross-chain-nft:deploy:sepolia": "hardhat run scripts/cross-chain-nft/deploy_sender.ts --network sepolia",
+    "cross-chain-nft:deploy:mumbai": "hardhat run scripts/cross-chain-nft/deploy_receiver.ts --network mumbai",
+    "cross-chain-nft:deploy_nft:mumbai": "hardhat run scripts/cross-chain-nft/deploy_nft.ts --network mumbai",
+    "cross-chain-nft:mint_nft:sepolia": "hardhat run scripts/cross-chain-nft/mint_nft.ts --network sepolia",
+    "cross-chain-nft:balanceOf_nft:mumbai": "hardhat run scripts/cross-chain-nft/balanceOf_nft.ts --network mumbai"
   }
 }

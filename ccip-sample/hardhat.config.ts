@@ -47,7 +47,7 @@ const config: HardhatUserConfig = {
       currency: "JPY",
       gasPriceApi: "https://api.etherscan.io/api?module=proxy&action=eth_gasPrice",
       coinmarketcap: COINMARKETCAP_API_KEY,
-      }
+    }
   },
 };
 
