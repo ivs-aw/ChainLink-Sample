@@ -38,9 +38,12 @@
     "base:sendMessage": "hardhat run scripts/base/send_data.ts --network sepolia",
     "base:readMessage": "hardhat run scripts/base/read_data.ts --network mumbai",
     "cross-chain-nft:deploy:sepolia": "hardhat run scripts/cross-chain-nft/deploy_sender.ts --network sepolia",
+    "cross-chain-nft:deploy:fuji": "hardhat run scripts/cross-chain-nft/deploy_sender_fuji.ts --network fuji",
     "cross-chain-nft:deploy:mumbai": "hardhat run scripts/cross-chain-nft/deploy_receiver.ts --network mumbai",
     "cross-chain-nft:deploy_nft:mumbai": "hardhat run scripts/cross-chain-nft/deploy_nft.ts --network mumbai",
+    "cross-chain-nft:transfer_ownership:mumbai": "hardhat run scripts/cross-chain-nft/transfer_ownership.ts --network mumbai",
     "cross-chain-nft:mint_nft:sepolia": "hardhat run scripts/cross-chain-nft/mint_nft.ts --network sepolia",
+    "cross-chain-nft:mint_nft:fuji": "hardhat run scripts/cross-chain-nft/mint_nft_fuji.ts --network fuji",
     "cross-chain-nft:balanceOf_nft:mumbai": "hardhat run scripts/cross-chain-nft/balanceOf_nft.ts --network mumbai"
   }
 }

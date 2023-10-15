@@ -22,22 +22,22 @@ npx hardhat run scripts/deploy.ts
 
 #### base
 
-- sepoliaにデプロイ(Senderコントラクトのデプロイ)
+- sepolia にデプロイ(Sender コントラクトのデプロイ)
 
   ```bash
   yarn base:deploy:sepolia
   ```
 
-  Senderコントラクトをデプロイした記録  
+  Sender コントラクトをデプロイした記録  
   0x7C7Bd8BC7cEBeb774FC2E94CA8e7f9c0a752e682
 
-- mumbaiにデプロイ(Receiverコントラクトのデプロイ)
+- mumbai にデプロイ(Receiver コントラクトのデプロイ)
 
   ```bash
   yarn base:deploy:mumbai
   ```
 
-  Receiverコントラクトをデプロイした記録    
+  Receiver コントラクトをデプロイした記録  
   0xad9A067f7Ee8812F94a28FC6b5891593D631E4cc
 
 - 実際にクロスチェーンでメッセージを送信した記録
@@ -59,9 +59,9 @@ npx hardhat run scripts/deploy.ts
   result: Hello World!
   ```
 
-#### クロスチェーンNFT
+#### クロスチェーン NFT
 
-- NFTコントラクトの発行(mumbai)
+- NFT コントラクトの発行(mumbai)
 
   ```bash
   yarn cross-chain-nft:deploy_nft:mumbai
@@ -74,20 +74,13 @@ npx hardhat run scripts/deploy.ts
   ✨  Done in 12.26s.
   ```
 
-- Sender側のコントラクトのデプロイ(sepolia)
+- NFT コントラクトの owner 権限を DestinationMinter コントラクトに移譲するためのコマンド(mumbai 側)
 
   ```bash
-  yarn cross-chain-nft:deploy:sepolia
+  yarn cross-chain-nft:transfer_ownership:mumbai
   ```
 
-  実行結果
-
-  ```bash
-  deployed to 0x207026A0c9E2715A6deC09b79bdEb0822bF735C6
-  ✨  Done in 10.06s.
-  ```
-
-- Receiver側のコントラクトのデプロイ(mumbai)
+- Receiver 側のコントラクトのデプロイ(mumbai)
 
   ```bash
   yarn cross-chain-nft:deploy:mumbai
@@ -100,7 +93,34 @@ npx hardhat run scripts/deploy.ts
   ✨  Done in 9.38s.
   ```
 
-- NFTをsepolia側から発行するためのスクリプト実行
+- Sender 側のコントラクトのデプロイ(sepolia)
+
+  ```bash
+  yarn cross-chain-nft:deploy:sepolia
+  ```
+
+  実行結果
+
+  ```bash
+  deployed to 0x207026A0c9E2715A6deC09b79bdEb0822bF735C6
+  ✨  Done in 10.06s.
+  ```
+
+- sender 側のコントラクトのデプロイ(fuji)
+
+  ```bash
+  yarn cross-chain-nft:deploy:fuji
+  ```
+
+  実行結果
+
+  ```bash
+  Compiled 33 Solidity files successfully
+  deployed to 0xc70dC86cd3B55f745A2e5C11F38B50D939986f1d
+  ✨  Done in 10.02s.
+  ```
+
+- NFT を sepolia 側から発行するためのスクリプト実行
 
   ```bash
   yarn cross-chain-nft:mint_nft:sepolia
@@ -113,10 +133,26 @@ npx hardhat run scripts/deploy.ts
   ✨  Done in 15.27s.
   ```
 
-  CCIPエクスプローラー上での記録  
+  CCIP エクスプローラー上での記録  
   [0x281812090f537b7e10e083633dcc330c12df597cfa9a42301f8bb7dedcb37167](https://ccip.chain.link/msg/0x91cdfe9fc3136c3000ee39033e5164bdd07a9cbc358a625508856aa77c3466df)
 
-- NFTの残高情報を取得するスクリプトを実行
+- NFT を fuji 側から発行するためのスクリプト実行
+
+  ```bash
+  yarn cross-chain-nft:mint_nft:fuji
+  ```
+
+  実行結果
+
+  ```bash
+  result: 0x748fb07a3808226d98e5f951d9ae04d89ee9ccf1e709d90bfb10dd93607a268e
+  ✨  Done in 9.65s.
+  ```
+
+  CCIP エクスプローラー上での記録  
+  [0x748fb07a3808226d98e5f951d9ae04d89ee9ccf1e709d90bfb10dd93607a268e](https://ccip.chain.link/msg/0x748fb07a3808226d98e5f951d9ae04d89ee9ccf1e709d90bfb10dd93607a268e)
+
+- NFT の残高情報を取得するスクリプトを実行
 
   ```bash
   yarn cross-chain-nft:balanceOf_nft:mumbai
@@ -130,11 +166,12 @@ npx hardhat run scripts/deploy.ts
   ```
 
 ### 参考文献
+
 1. [CCIP Getting started](https://docs.chain.link/ccip/getting-started)
 2. [Hackathon resources](https://docs.chain.link/resources/hackathon-resources)
-3. [【完全保存版】ChainlinkのCCIPで異なるチェーンにメッセージを送ろう！](https://note.com/standenglish/n/nebdf18ec4e57)
-4. [senderのコントラクトのremix](https://remix.ethereum.org/#url=https://docs.chain.link/samples/CCIP/Sender.sol&lang=en&optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.18+commit.87f61d96.js)
-5. [CCIPのサポートブロックチェーンと制約](https://docs.chain.link/ccip/supported-networks)
+3. [【完全保存版】Chainlink の CCIP で異なるチェーンにメッセージを送ろう！](https://note.com/standenglish/n/nebdf18ec4e57)
+4. [sender のコントラクトの remix](https://remix.ethereum.org/#url=https://docs.chain.link/samples/CCIP/Sender.sol&lang=en&optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.18+commit.87f61d96.js)
+5. [CCIP のサポートブロックチェーンと制約](https://docs.chain.link/ccip/supported-networks)
 6. [CCIP Examples](https://docs.chain.link/ccip/examples)
 7. [CCIP Explorer](https://ccip.chain.link/)
 8. [Cross chain NFT Sample](https://github.com/smartcontractkit/ccip-cross-chain-nft)

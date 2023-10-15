@@ -1,6 +1,6 @@
-import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import * as dotenv from 'dotenv';
+import { HardhatUserConfig } from "hardhat/config";
 
 dotenv.config();
 
@@ -31,6 +31,10 @@ const config: HardhatUserConfig = {
     },
     sepolia: {
       url: SEPOLIA_API_URL,
+      accounts: [`${PRIVATE_KEY}`],
+    },
+    fuji: {
+      url: "https://rpc.ankr.com/avalanche_fuji",
       accounts: [`${PRIVATE_KEY}`],
     }
   },
