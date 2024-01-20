@@ -540,3 +540,6 @@ Actual amount billed to subscription #1828:
 10. [CCIP get start](https://docs.chain.link/ccip/getting-started)
 11. [Example Cross-chain dApps and Tools](https://docs.chain.link/ccip/examples)
 12. [【GitHub】ccip-starter-kit-hardhat](https://github.com/smartcontractkit/ccip-starter-kit-hardhat)
+13. [Function Dapp Demo App](https://www.run-functions.app/?handle=HARUKI05758694)
+14. [Fuctions Resources](https://dev.chain.link/products/functions)
+15. [GitHub Chainlink function app](https://github.com/mashharuki/run-functions-dapp)
